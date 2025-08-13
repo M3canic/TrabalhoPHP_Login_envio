@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_POST["email"];
     $nome = $_POST["nome"];
-    $senha = $_POST["senha"];
+    $senha = password_hash($senha, PASSWORD_DEFAULT);
 
     // Confirmo o email
     $confemail_sql = "SELECT * FROM usuario WHERE email = '$email'";
@@ -29,4 +29,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
+
 ?>
